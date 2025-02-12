@@ -5,7 +5,8 @@ import socket
 
 s = socket.socket()
 
-host = socket.gethostname()
+#host = socket.gethostname()
+host = "192.168.1.130"
 
 print(host,'\n')
 

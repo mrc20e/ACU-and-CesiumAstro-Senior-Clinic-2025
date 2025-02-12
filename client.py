@@ -6,6 +6,7 @@ import sys
 s = socket.socket()
 
 host = input("Type host name:")
+#host = "LAPTOP-3I9UPEM4"
 
 port = 8080
 
@@ -35,3 +36,12 @@ elif command == "edit":
 
     if platform.system() == "Linux":
         os.system('nano testfile.xml')
+
+elif command == "run":
+    print("Command is :", command)
+
+    os.system('python3 xml-practice.py')
+
+elif command == "clear":
+    print("Command is :", command)
+    os.system('python3 clearxml.py')
