@@ -6,7 +6,7 @@ import socket
 s = socket.socket()
 
 #host = socket.gethostname()
-host = "192.168.1.130"
+host = "192.168.1.130" # This is the ip address for my raspberry pi at my house - Matson
 
 print(host,'\n')
 
