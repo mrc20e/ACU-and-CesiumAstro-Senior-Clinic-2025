@@ -3,10 +3,11 @@ import os
 import platform
 import sys
 
-s = socket.socket()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-host = input("Type host name:")
+#host = input("Type host name:")
 #host = "LAPTOP-3I9UPEM4"
+host = '192.168.56.1'
 
 port = 8080
 
@@ -17,6 +18,7 @@ except Exception as e:
     sys.exit()
 
 print("Connected to Server")
+print("Commands are open, edit, run, and clear")
 
 command = s.recv(1024)
 

@@ -3,7 +3,7 @@ import socket
 #import sys
 #import os
 
-s = socket.socket()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 #host = socket.gethostname()
 host = "192.168.1.130" # This is the ip address for my raspberry pi at my house - Matson
