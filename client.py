@@ -5,9 +5,9 @@ import sys
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-#host = input("Type host name:")
+host = input("Type host name:")
 #host = "LAPTOP-3I9UPEM4"
-host = '192.168.56.1'
+#host = '192.168.56.1'
 
 port = 8080
 
