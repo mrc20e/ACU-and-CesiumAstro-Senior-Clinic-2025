@@ -7,6 +7,8 @@ host = socket.gethostname()
 
 port = 8080
 
+print(f"Starting UDP Client on {host}:{port}")
+
 s.bind((host,port))
 
 running = True
