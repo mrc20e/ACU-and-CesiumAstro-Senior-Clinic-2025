@@ -1,6 +1,7 @@
 import socket
 import numpy as np
 #import time
+import json
 
 def convertData(values):
 	array = np.fromstring(values.strip("[]"), sep = " ")
@@ -13,9 +14,13 @@ dataVals = '[.98 .7e3  1000]'
 
 dataArray = convertData(dataVals)
 
+print("Starting UDP Host")
+
 host = socket.gethostname()
 port = 8080
 
+keys = ["Data_Key1", "Data_Key2", "Data_Key3"]
+dataList = [dataArray[0], dataArray[1], dataArray[2]]
 
 
 data = [
@@ -24,12 +29,18 @@ data = [
 	{"Time":timeVal, "Key":"Data_Key3", "Value":dataArray[2]}
 ]
 
-forData = "\n".join([f"{entry['Time']}:{entry['Key']}:{entry['Value']}" for entry in data])
+jsondata = {"Time":timeVal, "Keys":keys, "Values":dataList}
+
+forData = ",".join([f"{entry['Time']}:{entry['Key']}:{entry['Value']}" for entry in data])
+
+forjson = json.dumps(jsondata)
 
 
-print(data)
+#print(data)
 
-print(forData)
+#print(forData)
+
+print(forjson)
 
 s.sendto(forData.encode(), (host,port))
 #time.sleep(.5)
