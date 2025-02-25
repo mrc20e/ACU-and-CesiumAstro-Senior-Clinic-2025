@@ -2,7 +2,6 @@ import socket
 import numpy as np
 import json 
 #import time
-import json
 
 def convertData(values):
 	array = np.fromstring(values.strip("[]"), sep = " ")
