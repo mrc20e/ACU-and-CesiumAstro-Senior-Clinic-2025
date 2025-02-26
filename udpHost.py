@@ -1,6 +1,7 @@
 import socket
 import numpy as np
 import json 
+from tabulate import tabulate
 #import time
 
 def convertData(values):
@@ -33,7 +34,13 @@ jsondata = {"Time":timeVal, "Keys":keys, "Values":dataList}
 
 forData = ",".join([f"{entry['Time']}:{entry['Key']}:{entry['Value']}" for entry in data])
 
-forjson = json.dumps(jsondata)
+flat_data = [
+	["Time:",jsondata[timeval]],
+	["Keys:",jsondata[keys]],
+	["Values:",jsondata[datalist]]
+]
+
+forjson = json.dumps(jsondata, indent=4)
 
 
 #print(data)
@@ -41,6 +48,8 @@ forjson = json.dumps(jsondata)
 #print(forData)
 
 print(forjson)
+
+print(tabulate(flat_data, headers=["Datalist", "Outputs"], tablefmt="pipe"))
 
 s.sendto(forData.encode(), (host,port))
 #time.sleep(.5)
