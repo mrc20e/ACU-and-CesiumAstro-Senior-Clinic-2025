@@ -35,9 +35,9 @@ jsondata = {"Time":timeVal, "Keys":keys, "Values":dataList}
 forData = ",".join([f"{entry['Time']}:{entry['Key']}:{entry['Value']}" for entry in data])
 
 flat_data = [
-	["Time:",jsondata[timeval]],
-	["Keys:",jsondata[keys]],
-	["Values:",jsondata[datalist]]
+	["Time:",jsondata["Time"]],
+	["Keys:",jsondata["Keys"]],
+	["Values:",jsondata["Values"]]
 ]
 
 forjson = json.dumps(jsondata, indent=4)
@@ -47,10 +47,12 @@ forjson = json.dumps(jsondata, indent=4)
 
 #print(forData)
 
-print(forjson)
+#print(forjson)
 
-print(tabulate(flat_data, headers=["Datalist", "Outputs"], tablefmt="pipe"))
+table = tabulate(flat_data, headers=["Datalist", "Outputs"], tablefmt="pipe")
 
-s.sendto(forData.encode(), (host,port))
+print(table)
+
+s.sendto(table.encode(), (host,port))
 #time.sleep(.5)
 s.sendto("stop".encode(), (host,port))
