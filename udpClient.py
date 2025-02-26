@@ -25,3 +25,6 @@ while(running):
 			s.close()
 	except OSError as e:
 		pass
+	except KeyboardInterrupt:
+		s.close()
+		running = False
