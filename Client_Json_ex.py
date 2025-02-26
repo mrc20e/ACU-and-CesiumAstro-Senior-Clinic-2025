@@ -32,16 +32,19 @@ data = [
 
 jsondata = {"Time":timeVal, "Keys":keys, "Values":dataList}
 
+json_string = json.dumps(jsondata, separators=(",",":"))
+
 forData = ",".join([f"{entry['Time']}:{entry['Key']}:{entry['Value']}" for entry in data])
 #Added this data array for the the table
-flat_data = [
+#flat_data = [
 	["Time:",jsondata["Time"]],
 	["Keys:",jsondata["Keys"]],
 	["Values:",jsondata["Values"]]
 ]
 
-forjson = json.dumps(jsondata, indent=4) #Added an indent but probably will take out
+#forjson = json.dumps(jsondata, indent=4) #Added an indent but probably will take out
 
+print(json_string)
 
 #print(data)
 
@@ -49,9 +52,9 @@ forjson = json.dumps(jsondata, indent=4) #Added an indent but probably will take
 
 #print(forjson)
 
-table = tabulate(flat_data, headers=["Datalist", "Outputs"], tablefmt="pipe")
+#table = tabulate(flat_data, headers=["Datalist", "Outputs"], tablefmt="pipe")
 
-print(table)
+#print(table)
 
 s.sendto(table.encode(), (host,port))
 #time.sleep(.5)
