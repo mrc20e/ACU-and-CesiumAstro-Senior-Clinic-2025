@@ -33,14 +33,14 @@ data = [
 jsondata = {"Time":timeVal, "Keys":keys, "Values":dataList}
 
 forData = ",".join([f"{entry['Time']}:{entry['Key']}:{entry['Value']}" for entry in data])
-
+#Added this data array for the the table
 flat_data = [
 	["Time:",jsondata["Time"]],
 	["Keys:",jsondata["Keys"]],
 	["Values:",jsondata["Values"]]
 ]
 
-forjson = json.dumps(jsondata, indent=4)
+forjson = json.dumps(jsondata, indent=4) #Added an indent but probably will take out
 
 
 #print(data)
